@@ -20,9 +20,6 @@ const config = {
         }
     },
     scene: [
-        Bullet,
-        MonsterCreation,
-        MainMenu,
         GameScene
     ],
     
