@@ -27,7 +27,7 @@ class MenuScene extends Phaser.Scene {
 
         bg = this.add.image(1280,720,'bg')
         
-        logo = this.add.image(1280,190,'logo').setScale(2.5)
+        logo = this.add.image(1280,250,'logo').setScale(3)
 
 
         playButton = this.add.image(1280,600,'playButton').setScale(0.75)
@@ -43,7 +43,7 @@ class MenuScene extends Phaser.Scene {
 
 
         playButton.on("pointerdown",()=>{
-            this.scene.start("Scene1")
+            this.scene.start("GameScene")
         });
 
 
@@ -80,7 +80,7 @@ class MenuScene extends Phaser.Scene {
 
 
         quitButton.on("pointerdown",()=>{
-            this.scene.start("WorkShop2")
+            this.scene.start("Exit")
         });
     }
 
