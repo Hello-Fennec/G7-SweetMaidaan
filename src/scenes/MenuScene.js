@@ -16,10 +16,10 @@ class MenuScene extends Phaser.Scene {
 
     preload() {
         this.load.image('playButton','src/image/Project/playbutton.png')
-        this.load.image('creditButton','src/image/play.png')
-        this.load.image('quitButton','src/image/play.png')
+        this.load.image('creditButton','src/image/Project/creditbutton.png')
+        this.load.image('quitButton','src/image/Project/qbutton.png')
         this.load.image('bg','src/image/Project/Background/bgmenu.jpg')
-        this.load.image('logo','src/image/Project/Logo.png')
+        this.load.image('logo','src/image/Project/logo.png')
 
     }
     
@@ -27,18 +27,18 @@ class MenuScene extends Phaser.Scene {
 
         bg = this.add.image(1280,720,'bg')
         
-        logo = this.add.image(1280,190,'logo').setScale(2)
+        logo = this.add.image(1280,190,'logo').setScale(2.5)
 
 
-        playButton = this.add.image(1280,500,'playButton').setScale(0.42)
+        playButton = this.add.image(1280,600,'playButton').setScale(0.75)
         playButton.setInteractive();
         
         playButton.on("pointerover",()=>{
-            playButton.setScale(0.48)
+            playButton.setScale(0.8)
         })
 
         playButton.on("pointerout",()=>{
-            playButton.setScale(0.42)
+            playButton.setScale(0.75)
         })
 
 
@@ -49,15 +49,15 @@ class MenuScene extends Phaser.Scene {
 
 
 
-        creditButton = this.add.image(1280,750,'creditButton').setScale(0.42)
+        creditButton = this.add.image(1280,900,'creditButton').setScale(0.75)
         creditButton.setInteractive();
         
         creditButton.on("pointerover",()=>{
-            creditButton.setScale(0.48)
+            creditButton.setScale(0.8)
         })
 
         creditButton.on("pointerout",()=>{
-            creditButton.setScale(0.42)
+            creditButton.setScale(0.75)
         })
 
 
@@ -67,15 +67,15 @@ class MenuScene extends Phaser.Scene {
 
 
 
-        quitButton = this.add.image(1280,1000,'quitButton').setScale(0.42)
+        quitButton = this.add.image(1280,1200,'quitButton').setScale(0.75)
         quitButton.setInteractive();
         
         quitButton.on("pointerover",()=>{
-            quitButton.setScale(0.48)
+            quitButton.setScale(0.8)
         })
 
         quitButton.on("pointerout",()=>{
-            quitButton.setScale(0.42)
+            quitButton.setScale(0.75)
         })
 
 
