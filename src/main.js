@@ -5,6 +5,7 @@ import CreditScene from './scenes/CreditScene';
 import GameScene from './scenes/GameScene';
 import GameScene2 from './scenes/GameScene2';
 import GameScene3 from './scenes/GameScene3';
+import GameScene4 from './scenes/GameScene4';
 import Tutorial from './scenes/Tutorial';
 import Exit from './scenes/Exit';
 
@@ -28,10 +29,11 @@ const config = {
         // MenuScene,
         // Tutorial,
         // CreditScene,
-        GameScene,
         // GameScene,
         // GameScene3,
+        // GameScene3,
         // GameScene2,
+
         
         Exit
     ],
