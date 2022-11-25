@@ -21,6 +21,8 @@ let door
 
 let key
 
+let deadsign
+
 let A;
 let D;
 let Space;
@@ -44,9 +46,9 @@ class Tutorial extends Phaser.Scene {
 
         this.load.image('door', 'src/image/Project/door.png')
 
-
         this.load.image('key', 'src/image/Project/key.png')
-
+        
+        this.load.image('deadsign', 'src/image/Project/deadsign.png')
 
         this.load.spritesheet('dude', 'src/image/Project/player.jpg', { frameWidth: 175, frameHeight: 233 });
 
@@ -55,20 +57,24 @@ class Tutorial extends Phaser.Scene {
     create() {
         bg = this.add.image(1280, 720, 'bggame').setScale(2)
 
-        water = this.physics.add.sprite(1500, 1380, 'water').setScale(0.7).setCollideWorldBounds(true).setImmovable(true);
+        deadsign = this.add.image(1350, 1257, 'deadsign').setScale(2.5)
+
+        water = this.physics.add.sprite(1500, 1380, 'water').setScale(0.7).setImmovable(true).setCollideWorldBounds(true)
 
         platform1 = this.physics.add.sprite(432, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
         platform13 = this.physics.add.sprite(964, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
         platform14 = this.physics.add.sprite(2914, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
 
-    
+        platform2 = this.physics.add.sprite(500, 900, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
  
 
         door = this.add.image(1280, 180, 'door').setScale(1.4)
 
-        key = this.physics.add.sprite(120, 450, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        key = this.physics.add.sprite(500, 800, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
 
         player = this.physics.add.sprite(200, 1200, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
+
+        
 
         this.physics.add.collider(player, platform1);
         this.physics.add.collider(player, platform12);
@@ -109,7 +115,7 @@ class Tutorial extends Phaser.Scene {
         } else if (D.isDown) {
             player.setVelocityX(400);
         } else if (Space.isDown && player.body.touching.down) {
-            player.setVelocityY(-700);
+            player.setVelocityY(-400);
         } else {
             player.setVelocityX(0);
         }
