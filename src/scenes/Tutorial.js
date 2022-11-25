@@ -22,6 +22,7 @@ let door
 let key
 
 let deadsign
+let upsign
 
 let A;
 let D;
@@ -50,6 +51,7 @@ class Tutorial extends Phaser.Scene {
         this.load.image('key', 'src/image/Project/key.png')
         
         this.load.image('deadsign', 'src/image/Project/deadsign.png')
+        this.load.image('upsign', 'src/image/Project/upsign.png')
         
         this.load.image('jumppad', 'src/image/Project/jumppad.png')
         
@@ -61,24 +63,25 @@ class Tutorial extends Phaser.Scene {
     create() {
         bg = this.add.image(1280, 720, 'bggame').setScale(2)
 
-        deadsign = this.add.image(1350, 1257, 'deadsign').setScale(2.5)
+        deadsign = this.add.image(850, 1257, 'deadsign').setScale(2.5)
+        upsign = this.add.image(2350, 1257, 'upsign').setScale(2.5)
 
-        water = this.physics.add.sprite(1500, 1380, 'water').setScale(0.7).setImmovable(true).setCollideWorldBounds(true)
+        water = this.physics.add.sprite(1100, 1380, 'water').setScale(0.7).setImmovable(true).setCollideWorldBounds(true)
 
         platform1 = this.physics.add.sprite(432, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
-        platform13 = this.physics.add.sprite(964, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
+        platform13 = this.physics.add.sprite(1700, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
         platform14 = this.physics.add.sprite(2914, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
 
-        platform2 = this.physics.add.sprite(1000, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform22 = this.physics.add.sprite(800, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform23 = this.physics.add.sprite(600, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform21 = this.physics.add.sprite(1980, 950, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform2 = this.physics.add.sprite(800, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform22 = this.physics.add.sprite(600, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform23 = this.physics.add.sprite(400, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform21 = this.physics.add.sprite(1800, 950, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
         
-        jumppad = this.physics.add.sprite(1980, 950, 'jumppad').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        jumppad = this.physics.add.sprite(2550, 1300, 'jumppad').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
 
-        door = this.add.image(1280, 180, 'door').setScale(1.4)
+        door = this.add.image(350, 630, 'door').setScale(1.4)
 
-        key = this.physics.add.sprite(450, 700, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        key = this.physics.add.sprite(1800, 850, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
 
         // player = this.physics.add.sprite(200, 1200, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
         player = this.physics.add.sprite(1980, 800, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
@@ -107,15 +110,15 @@ class Tutorial extends Phaser.Scene {
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
 
-        this.physics.add.collider(fox, platform2, () => {
-            if (fox.body.touching.down) {
-                fox.setVelocity(-500);
+        this.physics.add.collider(player, jumppad, () => {
+            if (player.body.touching.down) {
+                player.setVelocity(-600);
             } else {
-                fox.setGravityY(0);
+                player.setGravityY(0);
             }
         });
 
-        this.physics.add.collider(fox, platform2);
+        this.physics.add.collider(player, jumppad);
 
     }
 
