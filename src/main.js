@@ -28,10 +28,10 @@ const config = {
         // MenuScene,
         // Tutorial,
         // CreditScene,
-        GameScene,
+        // GameScene,
         // GameScene2,
-        // GameScene3,
-
+        GameScene3,
+        
         Exit,
     ],
 };
