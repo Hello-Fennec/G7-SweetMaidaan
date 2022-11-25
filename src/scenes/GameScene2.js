@@ -94,27 +94,25 @@ class GameScene2 extends Phaser.Scene {
             .setImmovable(true);
 
         platform1 = this.physics.add
-            .sprite(100, 1370, "p1")
+            .sprite(200, 1370, "p1")
             .setScale(0.5)
             .setImmovable(true);
 
-       
+
 
         platform2 = this.physics.add
             .sprite(1700, 900, "p4")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
-        // platform21 = this.physics.add
-        //     .sprite(880, 750, "p2")
-        //     .setScale(0.35)
-        //     .setCollideWorldBounds(true)
-        //     .setImmovable(true);
-        // platform22 = this.physics.add
-        //     .sprite(1250, 350, "p2")
-        //     .setScale(0.35)
-        //     .setCollideWorldBounds(true)
-        //     .setImmovable(true);
+        platform21 = this.physics.add
+            .sprite(60, 1000, "p2")
+            .setScale(0.35)
+            .setImmovable(true);
+        platform22 = this.physics.add
+            .sprite(2580, 900, "p4")
+            .setScale(0.35)
+            .setImmovable(true);
         // platform23 = this.physics.add
         //     .sprite(1070, 350, "p2")
         //     .setScale(0.35)
@@ -127,7 +125,7 @@ class GameScene2 extends Phaser.Scene {
         //     .setCollideWorldBounds(true)
         //     .setImmovable(true);
 
-        
+
 
         key = this.physics.add
             .sprite(120, 450, "key")
@@ -153,7 +151,7 @@ class GameScene2 extends Phaser.Scene {
         Space = this.input.keyboard.addKey(
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
-        
+
         this.anims.create({
             key: "playerAniMove",
             frames: this.anims.generateFrameNumbers("player", {
@@ -208,7 +206,7 @@ class GameScene2 extends Phaser.Scene {
 
     jump() {
         if (Space.isDown && player.body.touching.down) {
-            player.setVelocityY(-550);
+            player.setVelocityY(-600);
             player.setGravityY(500);
         } else if (Space.isUp) {
             player.setGravityY(700);
