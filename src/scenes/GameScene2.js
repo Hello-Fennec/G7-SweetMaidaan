@@ -198,7 +198,7 @@ class GameScene2 extends Phaser.Scene {
             
             fox.setVelocityX(400);
         } else if (Space.isDown && fox.body.touching.down) {
-            fox.setVelocityY(-600);
+            fox.setVelocityY(-400);
         } else {
             fox.setVelocityX(0);
         }
