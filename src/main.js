@@ -1,7 +1,7 @@
 import 'phaser';
 import Phaser from 'phaser';
 import GameScene from './scenes/GameScene';
-import GameScene from './scenes/GameScene2';
+import GameScene2 from './scenes/GameScene2';
 
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
@@ -14,11 +14,12 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: false
+            debug: true
         }
     },
     scene: [
         GameScene2,
+        GameScene
         
     ],
     

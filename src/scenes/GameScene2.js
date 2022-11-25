@@ -35,10 +35,10 @@ let A;
 let D;
 let Space;
 
-class GameScene extends Phaser.Scene {
+class GameScene2 extends Phaser.Scene {
     constructor(test) {
         super({
-            key: "GameScene",
+            key: "GameScene2",
         });
     }
 
@@ -177,4 +177,4 @@ class GameScene extends Phaser.Scene {
     }
 }
 
-export default GameScene;
+export default GameScene2;

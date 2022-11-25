@@ -30,6 +30,7 @@ let singbg;
 let singbg2;
 let door;
 let key;
+let water;
 
 let A;
 let D;
@@ -57,7 +58,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('singbg2', 'src/image/Project/sing2.png')
         this.load.spritesheet('fox', 'src/image/Project/player3.png', { frameWidth: 175, frameHeight: 223 });
         this.load.image('key', 'src/image/Project/key.png')
-
+        this.load.image('water', 'src/image/Project/water.png')
     }
 
     create() {
@@ -66,6 +67,7 @@ class GameScene extends Phaser.Scene {
 
 
         platforma1 = this.physics.add.sprite(200, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        
         platforma2 = this.physics.add.sprite(900, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
         platforma3 = this.physics.add.sprite(1600, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
         platforma4 = this.physics.add.sprite(2400, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
@@ -88,6 +90,7 @@ class GameScene extends Phaser.Scene {
         singbg2 = this.physics.add.sprite(2400, 780, 'singbg2').setScale(3).setDepth(1);
         door = this.add.sprite(2280, 125, 'door').setDepth(2);
         key = this.physics.add.sprite(2500 ,750 , 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        water = this.physics.add.sprite(1500, 1380, 'water').setScale(0.7).setImmovable(true).setCollideWorldBounds(true)
         //key = this.add.physics.sprite(2400 , 700).setScale(1.5).setDepth(2);
         
 
@@ -143,6 +146,7 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(fox, platformb3);
         this.physics.add.collider(fox, platformb4);
         this.physics.add.collider(fox, platformb5);
+        this.physics.add.collider(fox, water);
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
