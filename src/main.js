@@ -21,6 +21,8 @@ const config = {
         default: 'arcade',
         arcade: {
             debug: true
+            // debug: false
+
         }
     },
     scene: [
@@ -28,9 +30,10 @@ const config = {
         // Tutorial,
         // CreditScene,
         // GameScene,
-        GameScene2,
         // GameScene3,
-        GameScene4,
+        // GameScene3,
+        // GameScene2,
+
         
         Exit
     ],
