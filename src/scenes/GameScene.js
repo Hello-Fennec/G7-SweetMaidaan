@@ -14,6 +14,7 @@ let platform22;
 let platform23;
 
 let platform3;
+let platform31;
 let water;
 let player;
 
@@ -35,6 +36,7 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.load.image("bggame", "src/image/Project/Background/bgingame.png");
         this.load.image("p5", "src/image/Project/platform5.png");
+        this.load.image("p6", "src/image/Project/platform2.png");
         this.load.image("p1", "src/image/Project/platform1.png");
         this.load.image("p2", "src/image/Project/platform2.png");
         this.load.image("p3", "src/image/Project/platform3.png");
@@ -50,10 +52,14 @@ class GameScene extends Phaser.Scene {
             frameHeight: 123,
         });
 
-        this.load.spritesheet("jump", "src/image/Project/PalmlhaiPrigpawh.png", {
-            frameWidth: 233,
-            frameHeight: 123,
-        });
+        this.load.spritesheet(
+            "jump",
+            "src/image/Project/PalmlhaiPrigpawh.png",
+            {
+                frameWidth: 233,
+                frameHeight: 123,
+            }
+        );
     }
 
     create() {
@@ -92,28 +98,44 @@ class GameScene extends Phaser.Scene {
             .setImmovable(true);
 
         platform3 = this.physics.add
-            .sprite(2500, 1100, "p4")
+            .sprite(2500, 1050, "p4")
             .setScale(0.25)
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
+        platform31 = this.physics.add
+            .sprite(1300, 800, "p6")
+            .setScale(0.35)
+            .setVelocityX(300)
+            .setCollideWorldBounds(true)
+            .setImmovable(true);
+
         platform2 = this.physics.add
-            .sprite(1700, 900, "p2")
+            .sprite(1900, 800, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
+
         platform21 = this.physics.add
-            .sprite(880, 750, "p2")
+            .sprite(300, 800, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
+
+        this.physics.add.collider(platform2, platform31, () => {
+            platform31.setVelocityX(-300);
+        });
+        this.physics.add.collider(platform21, platform31, () => {
+            platform31.setVelocityX(300);
+        });
+
         platform22 = this.physics.add
             .sprite(1250, 350, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
         platform23 = this.physics.add
-            .sprite(1070, 350, "p2")
+            .sprite(1070, 350, "p3")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
@@ -142,6 +164,7 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(player, platform22);
         this.physics.add.collider(player, platform23);
         this.physics.add.collider(player, platform3);
+        this.physics.add.collider(player, platform31);
         this.physics.add.collider(player, water);
         this.physics.add.collider(player, key);
 
@@ -184,8 +207,8 @@ class GameScene extends Phaser.Scene {
 
     update(delta, time) {
         // player.anims.play("playerAni", true);
-        this.movehorizontal();
         this.jump();
+        this.movehorizontal();
     }
 
     movehorizontal() {
@@ -206,6 +229,7 @@ class GameScene extends Phaser.Scene {
 
     jump() {
         if (Space.isDown && player.body.touching.down) {
+            // player.anims.play("playerAniJump", true);
             player.setVelocityY(-550);
             player.setGravityY(500);
         } else if (Space.isUp) {
