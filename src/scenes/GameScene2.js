@@ -61,8 +61,8 @@ class GameScene2 extends Phaser.Scene {
         //this.load.image('p4', 'src/image/Project/platform4.png')
 
         this.load.image('door', 'src/image/Project/door.png')
-        this.load.image('singbg', 'src/image/Project/sing1.png')
-        this.load.image('singbg2', 'src/image/Project/sing2.png')
+        this.load.image('singbg', 'src/image/Project/rightsign.png')
+        this.load.image('singbg2', 'src/image/Project/leftsign.png')
         this.load.spritesheet('fox', 'src/image/Project/player3.png', { frameWidth: 175, frameHeight: 223 });
         this.load.image('key', 'src/image/Project/key.png')
         this.load.image('jumppad', 'src/image/Project/jumppad.png')
@@ -94,7 +94,7 @@ class GameScene2 extends Phaser.Scene {
 
         singbg = this.physics.add.sprite(100, 1320, 'singbg').setScale(3).setDepth(1);
         //singbg = this.physics.add.sprite(400, 720, 'singbg').setScale(3).setDepth(1);
-        singbg2 = this.physics.add.sprite(2300, 550, 'singbg2').setScale(3).setDepth(1);
+        singbg2 = this.physics.add.sprite(2300, 530, 'singbg2').setScale(3).setDepth(1);
         door = this.add.sprite(200, 125, 'door').setDepth(2);
         key = this.physics.add.sprite(2450 ,100 , 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
         jumppad1 = this.physics.add.sprite(520 ,1350 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);

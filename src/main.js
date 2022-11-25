@@ -18,8 +18,8 @@ const config = {
         }
     },
     scene: [
-        GameScene2,
-        GameScene
+        GameScene,
+        GameScene2
         
     ],
     
