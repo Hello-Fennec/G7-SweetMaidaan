@@ -43,7 +43,7 @@ class MenuScene extends Phaser.Scene {
 
 
         playButton.on("pointerdown",()=>{
-            this.scene.start("GameScene")
+            this.scene.start("Tutorial")
         });
 
 
@@ -62,7 +62,7 @@ class MenuScene extends Phaser.Scene {
 
 
         creditButton.on("pointerdown",()=>{
-            this.scene.start("WorkShop2")
+            this.scene.start("CreditScene")
         });
 
 

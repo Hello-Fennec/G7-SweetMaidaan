@@ -1,6 +1,7 @@
 import 'phaser';
 import Phaser from 'phaser';
 import MenuScene from './scenes/MenuScene';
+import CreditScene from './scenes/CreditScene';
 import GameScene from './scenes/GameScene';
 import GameScene2 from './scenes/GameScene2';
 import Tutorial from './scenes/Tutorial';
@@ -21,11 +22,13 @@ const config = {
         }
     },
     scene: [
-        // Tutorial,
         // MenuScene,
-        // GameScene2,
-        GameScene,
-        // Exit
+        // Tutorial,
+        // CreditScene,
+        // GameScene,
+        GameScene2,
+        
+        Exit
     ],
     
     
