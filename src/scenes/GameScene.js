@@ -31,6 +31,7 @@ let D;
 let Space;
 
 let i = 0;
+let z = 0;
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -175,15 +176,36 @@ class GameScene extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-        coin1 = this.physics.add
-            .sprite(1145, 980, "coin1")
+        coin2 = this.physics.add
+            .sprite(2445, 850, "coin2")
             .setScale(0.3)
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
+        coin3 = this.physics.add
+            .sprite(1320, 700, "coin3")
+            .setScale(0.3)
+            .setCollideWorldBounds(true)
+            .setGravityY(3000);
+
         this.physics.add.collider(player, coin1, () => {
             coin1.destroy();
             i++;
+        });
+
+        this.physics.add.collider(player, coin2, () => {
+            coin2.destroy();
+            i++;
+        });
+
+        this.physics.add.collider(player, coin3, () => {
+            coin3.destroy();
+            i++;
+        });
+
+        this.physics.add.collider(player, key, () => {
+            key.destroy();
+            z++;
         });
 
         this.physics.add.collider(player, door, () => {
@@ -205,6 +227,8 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(player, platform31);
         // this.physics.add.collider(player, water);
         this.physics.add.collider(player, key);
+        this.physics.add.collider(coin3, platform31);
+
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
