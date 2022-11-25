@@ -25,7 +25,7 @@ class MenuScene extends Phaser.Scene {
     
     create() {
 
-        bg = this.add.image(1280,720,'bg')
+        bg = this.add.image(1280,720,'bg').setScale(1.05)
         
         logo = this.add.image(1280,250,'logo').setScale(3)
 

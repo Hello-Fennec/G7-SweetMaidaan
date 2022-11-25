@@ -26,10 +26,10 @@ let D;
 let Space;
 
 
-class GameScene extends Phaser.Scene {
+class Tutorial extends Phaser.Scene {
     constructor(test) {
         super({
-            key: "GameScene",
+            key: "Tutorial",
         });
     }
 
@@ -55,21 +55,12 @@ class GameScene extends Phaser.Scene {
     create() {
         bg = this.add.image(1280, 720, 'bggame').setScale(2)
 
-        water = this.physics.add.sprite(1145, 1380, 'water').setScale(0.7).setCollideWorldBounds(true).setImmovable(true);
+        water = this.physics.add.sprite(1500, 1380, 'water').setScale(0.7).setCollideWorldBounds(true).setImmovable(true);
 
         platform1 = this.physics.add.sprite(432, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
-        platform13 = this.physics.add.sprite(1836, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
+        platform13 = this.physics.add.sprite(964, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
         platform14 = this.physics.add.sprite(2914, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
 
-
-        platform3 = this.physics.add.sprite(2500, 1100, 'p4').setScale(0.25).setCollideWorldBounds(true).setImmovable(true);
-
-        platform2 = this.physics.add.sprite(1700, 900, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform21 = this.physics.add.sprite(880, 750, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform22 = this.physics.add.sprite(1250, 350, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-        platform23 = this.physics.add.sprite(1070, 350, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
-
-        platform = this.physics.add.sprite(53, 550, 'p5').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
     
  
 
@@ -118,12 +109,12 @@ class GameScene extends Phaser.Scene {
         } else if (D.isDown) {
             player.setVelocityX(400);
         } else if (Space.isDown && player.body.touching.down) {
-            player.setVelocityY(-450);
+            player.setVelocityY(-700);
         } else {
             player.setVelocityX(0);
         }
     }
 }
 
-export default GameScene;
+export default Tutorial;
 

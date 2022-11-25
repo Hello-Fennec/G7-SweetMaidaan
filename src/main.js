@@ -2,6 +2,8 @@ import 'phaser';
 import Phaser from 'phaser';
 import MenuScene from './scenes/MenuScene';
 import GameScene from './scenes/GameScene';
+import GameScene2 from './scenes/GameScene2';
+import Tutorial from './scenes/Tutorial';
 import Exit from './scenes/Exit';
 
 const config = {
@@ -15,12 +17,13 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            
-            debug: true
+            debug: false
         }
     },
     scene: [
+        Tutorial,
         MenuScene,
+        GameScene2,
         GameScene,
         Exit
     ],
