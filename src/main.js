@@ -23,11 +23,8 @@ const config = {
 
             debug: true
             // debug: true
-
             // debug: true
            
-
-
         }
     },
     scene: [
