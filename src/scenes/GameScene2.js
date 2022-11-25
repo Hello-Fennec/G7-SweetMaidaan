@@ -30,12 +30,14 @@ let singbg;
 let singbg2;
 let door;
 let key;
-let water1;
 let jumppad1;
 let jumppad2;
 let jumppad3;
 let jumppad4;
 let jumppad5;
+let water1;
+let water2;
+let water3;
 
 let A;
 let D;
@@ -64,6 +66,7 @@ class GameScene2 extends Phaser.Scene {
         this.load.spritesheet('fox', 'src/image/Project/player3.png', { frameWidth: 175, frameHeight: 223 });
         this.load.image('key', 'src/image/Project/key.png')
         this.load.image('jumppad', 'src/image/Project/jumppad.png')
+        this.load.image('water', 'src/image/Project/water.png')
     }
 
     create() {
@@ -99,6 +102,10 @@ class GameScene2 extends Phaser.Scene {
         jumppad3 = this.physics.add.sprite(2420 ,570 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
         jumppad4 = this.physics.add.sprite(2000 ,920 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
         jumppad5 = this.physics.add.sprite(1200 ,570 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+
+        water1 = this.physics.add.sprite(800, 1680, 'water').setScale(0.4).setImmovable(true).setCollideWorldBounds(true)
+        water2 = this.physics.add.sprite(1100, 1680, 'water').setScale(0.4).setImmovable(true).setCollideWorldBounds(true)
+        water3 = this.physics.add.sprite(1400, 1680, 'water').setScale(0.4).setImmovable(true).setCollideWorldBounds(true)
 
         //key = this.add.physics.sprite(2400 , 700).setScale(1.5).setDepth(2);
         
@@ -157,6 +164,12 @@ class GameScene2 extends Phaser.Scene {
         this.physics.add.collider(fox, platformb5);
         this.physics.add.collider(fox, jumppad1);
         this.physics.add.collider(fox, jumppad2);
+        this.physics.add.collider(fox, jumppad3);
+        this.physics.add.collider(fox, jumppad4);
+        this.physics.add.collider(fox, jumppad5);
+        this.physics.add.collider(fox, water1);
+        this.physics.add.collider(fox, water2);
+        this.physics.add.collider(fox, water3);
         
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
