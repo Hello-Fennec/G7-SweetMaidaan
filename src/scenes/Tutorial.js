@@ -27,6 +27,7 @@ let A;
 let D;
 let Space;
 
+let jumppad;
 
 class Tutorial extends Phaser.Scene {
     constructor(test) {
@@ -65,14 +66,18 @@ class Tutorial extends Phaser.Scene {
         platform13 = this.physics.add.sprite(964, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
         platform14 = this.physics.add.sprite(2914, 1370, 'p1').setScale(0.5).setCollideWorldBounds(true).setImmovable(true);
 
-        platform2 = this.physics.add.sprite(500, 900, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform2 = this.physics.add.sprite(1000, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform22 = this.physics.add.sprite(800, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform23 = this.physics.add.sprite(600, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
+        platform21 = this.physics.add.sprite(1980, 950, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
  
 
         door = this.add.image(1280, 180, 'door').setScale(1.4)
 
-        key = this.physics.add.sprite(500, 800, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        key = this.physics.add.sprite(450, 700, 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
 
-        player = this.physics.add.sprite(200, 1200, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
+        // player = this.physics.add.sprite(200, 1200, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
+        player = this.physics.add.sprite(1980, 800, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
 
         
 
