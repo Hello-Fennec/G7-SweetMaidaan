@@ -89,18 +89,21 @@ class Tutorial extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
+
+
+
         platform2 = this.physics.add
-            .sprite(800, 800, "p2")
+            .sprite(900, 800, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
         platform22 = this.physics.add
-            .sprite(600, 800, "p2")
+            .sprite(700, 800, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
         platform23 = this.physics.add
-            .sprite(400, 800, "p2")
+            .sprite(500, 800, "p2")
             .setScale(0.35)
             .setCollideWorldBounds(true)
             .setImmovable(true);
@@ -110,13 +113,16 @@ class Tutorial extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
+
+
+
         jumppad = this.physics.add
             .sprite(2550, 1300, "jumppad")
-            .setScale(0.5)
+            .setScale(0.2)
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-        door = this.add.image(350, 630, "door").setScale(1.4);
+        door = this.add.image(450, 630, "door").setScale(1.4);
 
         key = this.physics.add
             .sprite(1800, 850, "key")
@@ -124,13 +130,12 @@ class Tutorial extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-        // player = this.physics.add.sprite(200, 1200, 'dude').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setBounce(0.2)
-        player = this.physics.add
-            .sprite(1980, 800, "dude")
+
+        player = this.physics.add.sprite(200, 1200, 'dude')
             .setCollideWorldBounds(true)
             .setGravityY(400)
             .setScale(0.5)
-            .setBounce(0.2);
+            .setBounce(0.2)
 
         this.physics.add.collider(player, platform1);
         this.physics.add.collider(player, platform12);

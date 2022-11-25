@@ -65,10 +65,18 @@ class GameScene extends Phaser.Scene {
     create() {
         bg = this.add.image(1280, 720, "bggame").setScale(2);
 
+        door = this.add.image(1280, 180, "door").setScale(1.4);
+
         player = this.physics.add
             .sprite(700, 250, "player")
             .setCollideWorldBounds(true)
+
+            .setGravityY(400)
+
+            .setBounce(0.2)
+
             .setScale(1.2);
+
 
         water = this.physics.add
             .sprite(1145, 1380, "water")
@@ -141,7 +149,7 @@ class GameScene extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-        door = this.add.image(1280, 180, "door").setScale(1.4);
+
 
         key = this.physics.add
             .sprite(120, 450, "key")
@@ -229,6 +237,7 @@ class GameScene extends Phaser.Scene {
             player.setGravityY(500);
         } else if (Space.isUp) {
             player.setGravityY(700);
+
         }
     }
 }
