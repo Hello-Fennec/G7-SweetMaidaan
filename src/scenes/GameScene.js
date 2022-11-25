@@ -24,6 +24,8 @@ let key;
 let keyb;
 let sign;
 
+
+
 let coin1;
 let coin2;
 let coin3;
@@ -64,6 +66,8 @@ class GameScene extends Phaser.Scene {
         this.load.image("coin1", "src/image/Project/coin.png");
         this.load.image("coin2", "src/image/Project/coin.png");
         this.load.image("coin3", "src/image/Project/coin.png");
+
+        
 
         this.load.spritesheet("player", "src/image/Project/PalmlhaiWalk.png", {
             frameWidth: 174,
@@ -106,6 +110,8 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(player, water, () => {
             this.scene.start("GameScene");
         });
+
+        
 
         platform1 = this.physics.add
             .sprite(432, 1370, "p1")
