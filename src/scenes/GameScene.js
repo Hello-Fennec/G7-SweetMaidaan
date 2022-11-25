@@ -27,6 +27,7 @@ let fox;
 let foxAni;
 
 let singbg;
+let singbg2;
 let crown
 
 let A;
@@ -52,18 +53,17 @@ class GameScene extends Phaser.Scene {
 
         this.load.image('crown', 'src/image/Project/kings_crown.png')
         this.load.image('singbg', 'src/image/Project/sing1.png')
-
+        this.load.image('singbg2', 'src/image/Project/sing2.png')
         this.load.spritesheet('fox', 'src/image/Project/player3.png', { frameWidth: 175, frameHeight: 223 });
 
     }
 
     create() {
-        bg = this.add.image(1280, 720, 'bggame').setScale(1.5)
+        //bg = this.add.image(1280, 720, 'bggame').setScale(1.5)
         bg1 = this.add.image(1280, 720, 'bggame1').setScale(2)
 
 
         platforma1 = this.physics.add.sprite(200, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
-        singbg = this.physics.add.sprite(400, 1320, 'singbg').setScale(3);
         platforma2 = this.physics.add.sprite(900, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
         platforma3 = this.physics.add.sprite(1600, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
         platforma4 = this.physics.add.sprite(2400, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
@@ -79,7 +79,11 @@ class GameScene extends Phaser.Scene {
         platform1 = this.physics.add.sprite(2300, 1200, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true);
         platform2 = this.physics.add.sprite(1800, 1010, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true);
         platform3 = this.physics.add.sprite(2400, 850, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true);
-        platform4 = this.physics.add.sprite(1300, 900, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true); platformb1
+        platform4 = this.physics.add.sprite(1300, 900, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true); 
+
+        singbg = this.physics.add.sprite(400, 1320, 'singbg').setScale(3);
+        singbg = this.physics.add.sprite(400, 620, 'singbg').setScale(3);
+        singbg2 = this.physics.add.sprite(2400, 780, 'singbg2').setScale(3);
 
         //platform1 = this.physics.add.sprite(200, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
         //platform1 = this.physics.add.sprite(200, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
