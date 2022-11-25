@@ -64,11 +64,8 @@ class GameScene extends Phaser.Scene {
         player = this.physics.add
             .sprite(700, 250, "player")
             .setCollideWorldBounds(true)
-
             .setGravityY(400)
-
             .setBounce(0.2)
-
             .setScale(1.2);
 
 
