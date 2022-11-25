@@ -30,6 +30,12 @@ let singbg;
 let singbg2;
 let door;
 let key;
+let water1;
+let jumppad1;
+let jumppad2;
+let jumppad3;
+let jumppad4;
+let jumppad5;
 
 let A;
 let D;
@@ -57,7 +63,7 @@ class GameScene2 extends Phaser.Scene {
         this.load.image('singbg2', 'src/image/Project/sing2.png')
         this.load.spritesheet('fox', 'src/image/Project/player3.png', { frameWidth: 175, frameHeight: 223 });
         this.load.image('key', 'src/image/Project/key.png')
-
+        this.load.image('jumppad', 'src/image/Project/jumppad.png')
     }
 
     create() {
@@ -66,28 +72,34 @@ class GameScene2 extends Phaser.Scene {
 
 
         platforma1 = this.physics.add.sprite(200, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platforma2 = this.physics.add.sprite(900, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platforma3 = this.physics.add.sprite(1600, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        platforma2 = this.physics.add.sprite(400, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        platforma3 = this.physics.add.sprite(1800, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
         platforma4 = this.physics.add.sprite(2400, 1420, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platforma5 = this.physics.add.sprite(2400, 250, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platforma6 = this.physics.add.sprite(200, 700, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        platforma5 = this.physics.add.sprite(200, 250, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        //platforma6 = this.physics.add.sprite(200, 800, 'p1').setScale(0.3).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
 
-        platformb1 = this.physics.add.sprite(800, 800, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platformb2 = this.physics.add.sprite(1100, 350, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platformb3 = this.physics.add.sprite(800, 500, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platformb4 = this.physics.add.sprite(1500, 350, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platformb5 = this.physics.add.sprite(800, 800, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        //platformb1 = this.physics.add.sprite(800, 800, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        // platformb2 = this.physics.add.sprite(1100, 350, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        // platformb3 = this.physics.add.sprite(800, 500, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        // platformb4 = this.physics.add.sprite(1500, 350, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        // platformb5 = this.physics.add.sprite(800, 800, 'p3').setScale(1).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
 
-        platform1 = this.physics.add.sprite(2300, 1200, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platform2 = this.physics.add.sprite(1800, 1010, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platform3 = this.physics.add.sprite(2400, 850, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
-        platform4 = this.physics.add.sprite(1300, 900, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2); 
+        platform1 = this.physics.add.sprite(2000, 950, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        //platform2 = this.physics.add.sprite(1700, 600, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        platform3 = this.physics.add.sprite(2800, 600, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);
+        platform4 = this.physics.add.sprite(1200, 600, 'p2').setScale(0.2).setCollideWorldBounds(true).setImmovable(true).setDepth(2);// ทำให้มันขยับได้ให้หน่อย 
 
-        singbg = this.physics.add.sprite(400, 1320, 'singbg').setScale(3).setDepth(1);
-        singbg = this.physics.add.sprite(400, 620, 'singbg').setScale(3).setDepth(1);
-        singbg2 = this.physics.add.sprite(2400, 780, 'singbg2').setScale(3).setDepth(1);
-        door = this.add.sprite(2280, 125, 'door').setDepth(2);
-        key = this.physics.add.sprite(2500 ,750 , 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        singbg = this.physics.add.sprite(100, 1320, 'singbg').setScale(3).setDepth(1);
+        //singbg = this.physics.add.sprite(400, 720, 'singbg').setScale(3).setDepth(1);
+        singbg2 = this.physics.add.sprite(2300, 550, 'singbg2').setScale(3).setDepth(1);
+        door = this.add.sprite(200, 125, 'door').setDepth(2);
+        key = this.physics.add.sprite(2450 ,100 , 'key').setScale(0.15).setCollideWorldBounds(true).setImmovable(true);
+        jumppad1 = this.physics.add.sprite(520 ,1350 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+        jumppad2 = this.physics.add.sprite(2420 ,1350 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+        jumppad3 = this.physics.add.sprite(2420 ,570 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+        jumppad4 = this.physics.add.sprite(2000 ,920 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+        jumppad5 = this.physics.add.sprite(1200 ,570 , 'jumppad').setScale(0.3).setCollideWorldBounds(true).setImmovable(true);
+
         //key = this.add.physics.sprite(2400 , 700).setScale(1.5).setDepth(2);
         
 
@@ -113,7 +125,7 @@ class GameScene2 extends Phaser.Scene {
         //     .setCollideWorldBounds(true)
         //     .setGravityY(500);
 
-        fox = this.physics.add.sprite(200, 1000, 'fox').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setDepth(2).setBounce(0.2);
+        fox = this.physics.add.sprite(200, 1000, 'fox').setCollideWorldBounds(true).setGravityY(400).setScale(0.5).setDepth(2);
         this.anims.create({
             key: "foxAni",
             frames: this.anims.generateFrameNumbers("fox", {
@@ -143,6 +155,9 @@ class GameScene2 extends Phaser.Scene {
         this.physics.add.collider(fox, platformb3);
         this.physics.add.collider(fox, platformb4);
         this.physics.add.collider(fox, platformb5);
+        this.physics.add.collider(fox, jumppad1);
+        this.physics.add.collider(fox, jumppad2);
+        
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -170,7 +185,7 @@ class GameScene2 extends Phaser.Scene {
             
             fox.setVelocityX(400);
         } else if (Space.isDown && fox.body.touching.down) {
-            fox.setVelocityY(-400);
+            fox.setVelocityY(-600);
         } else {
             fox.setVelocityX(0);
         }
