@@ -4,6 +4,7 @@ import MenuScene from './scenes/MenuScene';
 import CreditScene from './scenes/CreditScene';
 import GameScene from './scenes/GameScene';
 import GameScene2 from './scenes/GameScene2';
+import GameScene3 from './scenes/GameScene3';
 import Tutorial from './scenes/Tutorial';
 import Exit from './scenes/Exit';
 
@@ -20,6 +21,7 @@ const config = {
         arcade: {
             debug: true
             // debug: false
+
         }
     },
     scene: [
@@ -27,6 +29,8 @@ const config = {
         // Tutorial,
         // CreditScene,
         GameScene,
+        // GameScene,
+        // GameScene3,
         // GameScene2,
         
         Exit

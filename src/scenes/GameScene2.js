@@ -49,9 +49,14 @@ class GameScene2 extends Phaser.Scene {
 
         this.load.image("key", "src/image/Project/key.png");
 
-        this.load.spritesheet("dude", "src/image/Project/player.jpg", {
-            frameWidth: 175,
-            frameHeight: 233,
+        this.load.spritesheet("player", "src/image/Project/PalmlhaiWalk.png", {
+            frameWidth: 174,
+            frameHeight: 123,
+        });
+
+        this.load.spritesheet("jump", "src/image/Project/PalmlhaiPrigpawh.png", {
+            frameWidth: 233,
+            frameHeight: 123,
         });
     }
 
@@ -61,11 +66,11 @@ class GameScene2 extends Phaser.Scene {
         door = this.add.image(1280, 180, "door").setScale(1.4);
 
         player = this.physics.add
-            .sprite(200, 1200, "dude")
+            .sprite(80, 1200, "player")
             .setCollideWorldBounds(true)
             .setGravityY(400)
-            .setScale(0.5)
             .setBounce(0.2)
+            .setScale(1.2);
 
         water = this.physics.add
             .sprite(800, 1380, "water")
@@ -148,6 +153,36 @@ class GameScene2 extends Phaser.Scene {
         Space = this.input.keyboard.addKey(
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
+        
+        this.anims.create({
+            key: "playerAniMove",
+            frames: this.anims.generateFrameNumbers("player", {
+                start: 0,
+                end: 4,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: "playerAniIdle",
+            frames: this.anims.generateFrameNumbers("player", {
+                start: 4,
+                end: 4,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: "playerAniJump",
+            frames: this.anims.generateFrameNumbers("jump", {
+                start: 0,
+                end: 9,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
     }
 
     update(delta, time) {
@@ -157,19 +192,27 @@ class GameScene2 extends Phaser.Scene {
 
     movehorizontal() {
         if (A.isDown) {
+            // player.anims.play("playerAniMove", true);
+            player.anims.play("playerAniMove", true);
+            player.flipX = true;
             player.setVelocityX(-400);
         } else if (D.isDown) {
             player.setVelocityX(400);
+            player.flipX = false;
+            player.anims.play("playerAniMove", true);
         } else {
             player.setVelocityX(0);
+            player.anims.play("playerAniIdle", true);
         }
     }
 
     jump() {
         if (Space.isDown && player.body.touching.down) {
-            player.setVelocityY(-450);
-        } else {
-            player.setGravityY(400);
+            player.setVelocityY(-550);
+            player.setGravityY(500);
+        } else if (Space.isUp) {
+            player.setGravityY(700);
+
         }
     }
 }

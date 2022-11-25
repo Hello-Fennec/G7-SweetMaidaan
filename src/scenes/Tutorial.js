@@ -55,9 +55,14 @@ class Tutorial extends Phaser.Scene {
 
         this.load.image("jumppad", "src/image/Project/jumppad.png");
 
-        this.load.spritesheet("dude", "src/image/Project/player.jpg", {
-            frameWidth: 175,
-            frameHeight: 233,
+        this.load.spritesheet("player", "src/image/Project/PalmlhaiWalk.png", {
+            frameWidth: 174,
+            frameHeight: 123,
+        });
+
+        this.load.spritesheet("jump", "src/image/Project/PalmlhaiPrigpawh.png", {
+            frameWidth: 233,
+            frameHeight: 123,
         });
     }
 
@@ -131,10 +136,10 @@ class Tutorial extends Phaser.Scene {
             .setImmovable(true);
 
 
-        player = this.physics.add.sprite(200, 1200, 'dude')
+        player = this.physics.add.sprite(200, 1200, 'player')
             .setCollideWorldBounds(true)
             .setGravityY(400)
-            .setScale(0.5)
+            .setScale(1.2)
             .setBounce(0.2)
 
         this.physics.add.collider(player, platform1);
@@ -158,13 +163,43 @@ class Tutorial extends Phaser.Scene {
 
         this.physics.add.collider(player, jumppad, () => {
             if (player.body.touching.down) {
-                player.setVelocity(-600);
+                player.setVelocity(-800);
             } else {
                 player.setGravityY(0);
             }
         });
 
         this.physics.add.collider(player, jumppad);
+
+        this.anims.create({
+            key: "playerAniMove",
+            frames: this.anims.generateFrameNumbers("player", {
+                start: 0,
+                end: 4,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: "playerAniIdle",
+            frames: this.anims.generateFrameNumbers("player", {
+                start: 4,
+                end: 4,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: "playerAniJump",
+            frames: this.anims.generateFrameNumbers("jump", {
+                start: 0,
+                end: 9,
+            }),
+            duration: 500,
+            repeat: -1,
+        });
     }
 
     update(delta, time) {
@@ -174,19 +209,27 @@ class Tutorial extends Phaser.Scene {
 
     movehorizontal() {
         if (A.isDown) {
+            // player.anims.play("playerAniMove", true);
+            player.anims.play("playerAniMove", true);
+            player.flipX = true;
             player.setVelocityX(-400);
         } else if (D.isDown) {
             player.setVelocityX(400);
+            player.flipX = false;
+            player.anims.play("playerAniMove", true);
         } else {
             player.setVelocityX(0);
+            player.anims.play("playerAniIdle", true);
         }
     }
 
     jump() {
         if (Space.isDown && player.body.touching.down) {
-            player.setVelocityY(-350);
-        } else {
-            player.setGravityY(400);
+            player.setVelocityY(-550);
+            player.setGravityY(500);
+        } else if (Space.isUp) {
+            player.setGravityY(700);
+
         }
     }
 }
