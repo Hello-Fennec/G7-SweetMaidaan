@@ -21,11 +21,11 @@ const config = {
         }
     },
     scene: [
-        Tutorial,
-        MenuScene,
-        GameScene2,
+        // Tutorial,
+        // MenuScene,
+        // GameScene2,
         GameScene,
-        Exit
+        // Exit
     ],
     
     
