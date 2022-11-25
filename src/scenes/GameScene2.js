@@ -2,6 +2,7 @@ import Phaser from "phaser";
 
 let bg;
 let platform;
+let none;
 
 let platform1;
 let platform12;
@@ -49,6 +50,8 @@ class GameScene2 extends Phaser.Scene {
 
         this.load.image("key", "src/image/Project/key.png");
 
+        this.load.image("none", "src/image/Project/none.png");
+
         this.load.spritesheet("player", "src/image/Project/PalmlhaiWalk.png", {
             frameWidth: 174,
             frameHeight: 123,
@@ -64,6 +67,9 @@ class GameScene2 extends Phaser.Scene {
         bg = this.add.image(1280, 720, "bggame").setScale(2);
 
         door = this.add.image(1280, 180, "door").setScale(1.4);
+
+        none = this.add.image(1280, 900, "none").setScale(0.2);
+
 
         player = this.physics.add
             .sprite(80, 1200, "player")
