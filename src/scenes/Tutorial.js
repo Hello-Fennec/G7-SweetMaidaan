@@ -50,6 +50,9 @@ class Tutorial extends Phaser.Scene {
         this.load.image('key', 'src/image/Project/key.png')
         
         this.load.image('deadsign', 'src/image/Project/deadsign.png')
+        
+        this.load.image('jumppad', 'src/image/Project/jumppad.png')
+        
 
         this.load.spritesheet('dude', 'src/image/Project/player.jpg', { frameWidth: 175, frameHeight: 233 });
 
@@ -70,7 +73,8 @@ class Tutorial extends Phaser.Scene {
         platform22 = this.physics.add.sprite(800, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
         platform23 = this.physics.add.sprite(600, 800, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
         platform21 = this.physics.add.sprite(1980, 950, 'p2').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
- 
+        
+        jumppad = this.physics.add.sprite(1980, 950, 'jumppad').setScale(0.35).setCollideWorldBounds(true).setImmovable(true);
 
         door = this.add.image(1280, 180, 'door').setScale(1.4)
 
@@ -103,7 +107,15 @@ class Tutorial extends Phaser.Scene {
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
 
-        
+        this.physics.add.collider(fox, platform2, () => {
+            if (fox.body.touching.down) {
+                fox.setVelocity(-500);
+            } else {
+                fox.setGravityY(0);
+            }
+        });
+
+        this.physics.add.collider(fox, platform2);
 
     }
 
