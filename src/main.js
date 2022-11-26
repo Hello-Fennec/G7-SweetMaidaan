@@ -31,7 +31,7 @@ const config = {
         // GameScene,
         GameScene2,
         // GameScene3,
-        GameScene4,
+        // GameScene4,
         
         Exit,
     ],
