@@ -128,21 +128,25 @@ class GameScene2 extends Phaser.Scene {
             .sprite(800, 1380, "water")
             .setScale(0.7)
             .setCollideWorldBounds(true)
+            .setSize(1200, 100)
             .setImmovable(true);
         water2 = this.physics.add
             .sprite(1300, 1380, "water")
             .setScale(0.7)
             .setCollideWorldBounds(true)
+            .setSize(1200, 100)
             .setImmovable(true);
         water21 = this.physics.add
             .sprite(1800, 1380, "water")
             .setScale(0.7)
             .setCollideWorldBounds(true)
+            .setSize(1200, 100)
             .setImmovable(true);
         water22 = this.physics.add
             .sprite(2300, 1380, "water")
             .setScale(0.7)
             .setCollideWorldBounds(true)
+            .setSize(1200, 100)
             .setImmovable(true);
 
         platform1 = this.physics.add
