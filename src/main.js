@@ -29,8 +29,9 @@ const config = {
         // Tutorial,
         // CreditScene,
         // GameScene,
-        // GameScene2,
-        GameScene3,
+        GameScene2,
+        // GameScene3,
+        GameScene4,
         
         Exit,
     ],
