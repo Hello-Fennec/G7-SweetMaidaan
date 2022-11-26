@@ -24,8 +24,6 @@ let key;
 let keyb;
 let sign;
 
-
-
 let coin1;
 let coin2;
 let coin3;
