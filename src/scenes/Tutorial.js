@@ -20,6 +20,11 @@ let player;
 let door;
 
 let key;
+let keyb;
+
+let coin1;
+let coin2;
+let coin3;
 
 let deadsign;
 let upsign;
@@ -29,6 +34,11 @@ let D;
 let Space;
 
 let jumppad;
+
+let i = 0;
+let z = 0;
+let x = 0;
+let y = 0;
 
 class Tutorial extends Phaser.Scene {
     constructor(test) {
@@ -55,15 +65,25 @@ class Tutorial extends Phaser.Scene {
 
         this.load.image("jumppad", "src/image/Project/jumppad.png");
 
+        this.load.image("key", "src/image/Project/key.png");
+        this.load.image("keyb", "src/image/Project/keyb.png");
+        this.load.image("coin1", "src/image/Project/coin.png");
+        this.load.image("coin2", "src/image/Project/coin.png");
+        this.load.image("coin3", "src/image/Project/coin.png");
+
         this.load.spritesheet("player", "src/image/Project/PalmlhaiWalk.png", {
             frameWidth: 174,
             frameHeight: 123,
         });
 
-        this.load.spritesheet("jump", "src/image/Project/PalmlhaiPrigpawh.png", {
-            frameWidth: 233,
-            frameHeight: 123,
-        });
+        this.load.spritesheet(
+            "jump",
+            "src/image/Project/PalmlhaiPrigpawh.png",
+            {
+                frameWidth: 233,
+                frameHeight: 123,
+            }
+        );
     }
 
     create() {
@@ -73,9 +93,10 @@ class Tutorial extends Phaser.Scene {
         upsign = this.add.image(2350, 1257, "upsign").setScale(2.5);
 
         water = this.physics.add
-            .sprite(1100, 1380, "water")
+            .sprite(1100, 1390, "water")
             .setScale(0.7)
             .setImmovable(true)
+            .setSize(1100, 100)
             .setCollideWorldBounds(true);
 
         platform1 = this.physics.add
@@ -93,9 +114,6 @@ class Tutorial extends Phaser.Scene {
             .setScale(0.5)
             .setCollideWorldBounds(true)
             .setImmovable(true);
-
-
-
 
         platform2 = this.physics.add
             .sprite(900, 800, "p2")
@@ -118,16 +136,16 @@ class Tutorial extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-
-
-
         jumppad = this.physics.add
-            .sprite(2550, 1300, "jumppad")
+            .sprite(2450, 1300, "jumppad")
             .setScale(0.2)
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-        door = this.add.image(450, 630, "door").setScale(1.4);
+        door = this.physics.add
+            .sprite(450, 630, "door")
+            .setScale(1.4)
+            .setImmovable(true);
 
         key = this.physics.add
             .sprite(1800, 850, "key")
@@ -135,12 +153,12 @@ class Tutorial extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setImmovable(true);
 
-
-        player = this.physics.add.sprite(200, 1200, 'player')
+        player = this.physics.add
+            .sprite(200, 1200, "player")
             .setCollideWorldBounds(true)
             .setGravityY(400)
             .setScale(1.2)
-            .setBounce(0.2)
+            .setBounce(0.2);
 
         this.physics.add.collider(player, platform1);
         this.physics.add.collider(player, platform12);
@@ -152,8 +170,6 @@ class Tutorial extends Phaser.Scene {
         this.physics.add.collider(player, platform22);
         this.physics.add.collider(player, platform23);
         this.physics.add.collider(player, platform3);
-        this.physics.add.collider(player, water);
-        this.physics.add.collider(player, key);
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -169,7 +185,41 @@ class Tutorial extends Phaser.Scene {
             }
         });
 
-        this.physics.add.collider(player, jumppad);
+        coin1 = this.physics.add.sprite(500, 1200, "coin1").setScale(0.3);
+
+        coin2 = this.physics.add.sprite(2445, 850, "coin2").setScale(0.3);
+
+        coin3 = this.physics.add.sprite(1320, 700, "coin3").setScale(0.3);
+
+        this.physics.add.collider(player, coin1, () => {
+            coin1.destroy();
+            i++;
+        });
+
+        this.physics.add.collider(player, coin2, () => {
+            coin2.destroy();
+            i++;
+        });
+
+        this.physics.add.collider(player, coin3, () => {
+            coin3.destroy();
+            i++;
+        });
+
+        this.physics.add.collider(player, key, () => {
+            key.destroy();
+            z++;
+        });
+
+        this.physics.add.collider(player, water, () => {
+            this.scene.start("Tutorial");
+        });
+
+        this.physics.add.collider(player, door, () => {
+            if ((z == 1 && i == 3) || (x == 1 && i == 3)) {
+                this.scene.start("GameScene4");
+            }
+        });
 
         this.anims.create({
             key: "playerAniMove",
@@ -229,7 +279,6 @@ class Tutorial extends Phaser.Scene {
             player.setGravityY(500);
         } else if (Space.isUp) {
             player.setGravityY(700);
-
         }
     }
 }

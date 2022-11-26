@@ -28,7 +28,7 @@ let door;
 
 let key;
 
-let jumppad
+let jumppad;
 
 let A;
 let D;
@@ -46,7 +46,6 @@ let i = 0;
 let z = 0;
 let x = 0;
 let y = 0;
-
 
 class GameScene2 extends Phaser.Scene {
     constructor(test) {
@@ -88,19 +87,28 @@ class GameScene2 extends Phaser.Scene {
             frameHeight: 123,
         });
 
-        this.load.spritesheet("jump", "src/image/Project/PalmlhaiPrigpawh.png", {
-            frameWidth: 233,
-            frameHeight: 123,
-        });
-
+        this.load.spritesheet(
+            "jump",
+            "src/image/Project/PalmlhaiPrigpawh.png",
+            {
+                frameWidth: 233,
+                frameHeight: 123,
+            }
+        );
     }
 
     create() {
         bg = this.add.image(1280, 720, "bggame").setScale(2).setDepth(-9999);
 
-        door = this.add.image(70, 180, "door").setScale(1.4);
+        door = this.physics.add
+            .sprite(70, 180, "door")
+            .setScale(1.4)
+            .setImmovable(true);
 
-        none = this.physics.add.sprite(1485, 900, "none").setScale(0.12).setImmovable(true);
+        none = this.physics.add
+            .sprite(1485, 900, "none")
+            .setScale(0.12)
+            .setImmovable(true);
 
         jumppad = this.physics.add
             .sprite(2500, 845, "jumppad")
@@ -142,8 +150,6 @@ class GameScene2 extends Phaser.Scene {
             .setScale(0.5)
             .setImmovable(true);
 
-
-
         platform2 = this.physics.add
             .sprite(1700, 900, "p4")
             .setVelocityX(300)
@@ -168,9 +174,9 @@ class GameScene2 extends Phaser.Scene {
             .setScale(0.35)
             .setImmovable(true);
         platform8 = this.physics.add
-        .sprite(2380, 1200, "p2")
-        .setScale(0.35)
-        .setImmovable(true);
+            .sprite(2380, 1200, "p2")
+            .setScale(0.35)
+            .setImmovable(true);
 
         this.physics.add.collider(player, water, () => {
             this.scene.start("GameScene2");
@@ -265,8 +271,8 @@ class GameScene2 extends Phaser.Scene {
         });
 
         this.physics.add.collider(player, door, () => {
-            if (z == 1 && i == 3 || x == 1 && i == 3) {
-                this.scene.start("GameScene3");
+            if ((z == 1 && i == 3) || (x == 1 && i == 3)) {
+                this.scene.start("GameScene");
             }
         });
 
@@ -294,15 +300,12 @@ class GameScene2 extends Phaser.Scene {
         this.physics.add.collider(player, water21);
         this.physics.add.collider(player, water22);
         this.physics.add.collider(player, key);
-        
-        
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         Space = this.input.keyboard.addKey(
             Phaser.Input.Keyboard.KeyCodes.SPACE
         );
-
 
         this.physics.add.collider(player, jumppad, () => {
             if (player.body.touching.down) {
@@ -371,7 +374,6 @@ class GameScene2 extends Phaser.Scene {
             player.setGravityY(500);
         } else if (Space.isUp) {
             player.setGravityY(700);
-
         }
     }
 }

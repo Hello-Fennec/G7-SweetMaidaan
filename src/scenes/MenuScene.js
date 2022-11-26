@@ -62,7 +62,7 @@ class MenuScene extends Phaser.Scene {
 
 
         creditButton.on("pointerdown",()=>{
-            this.scene.start("CreditScene")
+            this.scene.start("CreditScene4")
         });
 
 

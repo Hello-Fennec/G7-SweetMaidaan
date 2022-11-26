@@ -250,7 +250,6 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(player, platformb4);
         this.physics.add.collider(player, platformb5);
 
-        this.physics.add.collider(player, door);
 
         A = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         D = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
