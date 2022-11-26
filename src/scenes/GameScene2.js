@@ -276,7 +276,7 @@ class GameScene2 extends Phaser.Scene {
 
         this.physics.add.collider(player, door, () => {
             if ((z == 1 && i == 3) || (x == 1 && i == 3)) {
-                this.scene.start("GameScene");
+                this.scene.start("End");
             }
         });
 

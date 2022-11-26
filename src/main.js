@@ -8,6 +8,7 @@ import GameScene3 from "./scenes/GameScene3";
 import GameScene4 from "./scenes/GameScene4";
 import Tutorial from "./scenes/Tutorial";
 import Exit from "./scenes/Exit";
+import End from "./scenes/End";
 
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
@@ -20,20 +21,19 @@ const config = {
     physics: {
         default: "arcade",
         arcade: {
-            debug: true
-            // debug: false
+            debug: false
         },
     },
     scene: [
-        // MenuScene,
-        // Tutorial,
-        // CreditScene,
-        // GameScene,
+        MenuScene,
+        Tutorial,
+        CreditScene,
+        GameScene,
         GameScene2,
-        // GameScene3,
-        // GameScene4,
-        
+        GameScene3,
+        GameScene4,
         Exit,
+        End,
     ],
 };
 
